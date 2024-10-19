@@ -29,8 +29,8 @@ router.post("/checkout", async (req, res) => {
       line_items: extractingItems,
       mode: "payment",
       success_url:
-        "http://localhost:5173/success?session_id={CHECKOUT_SESSION_ID}",
-      cancel_url: "http://localhost:5173/cancel",
+        "https://supergear-vfqu.vercel.app/success?session_id={CHECKOUT_SESSION_ID}",
+      cancel_url: "https://supergear-vfqu.vercel.app/cancel",
       metadata: {
         email,
       },
