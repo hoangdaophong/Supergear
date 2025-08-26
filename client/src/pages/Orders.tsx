@@ -13,11 +13,14 @@ import { store } from "../lib/store";
 import Container from "../ui/Container";
 import FormattedPrice from "../ui/FormattedPrice";
 import Loading from "../ui/Loading";
+import { useTranslation } from "react-i18next";
 
 const Orders = () => {
   const { currentUser } = store();
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(false);
+  const { t } = useTranslation();
+
   useEffect(() => {
     const getData = async () => {
       setLoading(true);
@@ -38,28 +41,26 @@ const Orders = () => {
     };
     getData();
   }, []);
+
   return (
     <Container>
       {loading ? (
         <Loading />
       ) : orders?.length > 0 ? (
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl font-bold mt-1">Customer order details</h2>
+          <h2 className="text-2xl font-bold mt-1">{t("orders.title")}</h2>
           <p className="text-gray-600">
-            Customer Name{" "}
+            {t("orders.customerName")}{" "}
             <span className="text-black font-semibold">
               {currentUser?.firstName} {currentUser?.lastName}
             </span>
           </p>
           <p className="text-gray-600">
-            Total Orders{" "}
+            {t("orders.totalOrders")}{" "}
             <span className="text-black font-semibold">{orders?.length}</span>
           </p>
           <p className="text-sm max-w-[600px] tracking-wide text-gray-500">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
-            porro, nemo quisquam explicabo, mollitia inventore nobis id maiores
-            odio incidunt quidem rerum delectus quaerat similique voluptates
-            dolores perferendis numquam quae.
+            {t("orders.description")}
           </p>
           <div className="flex flex-col gap-3">
             <div className="space-y-6 divide-y divide-gray-900/10">
@@ -76,7 +77,7 @@ const Orders = () => {
                         <dt>
                           <DisclosureButton className="flex w-full items-center justify-between text-left text-gray-900">
                             <span className="text-base font-semibold leading-7">
-                              Tracking number:{" "}
+                              {t("orders.trackingNumber")}{" "}
                               <span className="font-normal">
                                 {order?.paymentId}
                               </span>
@@ -87,27 +88,27 @@ const Orders = () => {
                         <DisclosurePanel as="dd" className="mt-5 pr-12">
                           <div className="flex flex-col gap-2 bg-[#f4f4f480] p-5 border border-gray-200">
                             <p className="text-base font-semibold">
-                              Your order{" "}
+                              {t("orders.orderShipped")}{" "}
                               <span className="text-skyText">
                                 #{order?.paymentId.substring(0, 20)}...
                               </span>{" "}
-                              has shipped and will be with you soon.
+                              {t("orders.hasShipped")}
                             </p>
                             <div className="flex flex-col gap-1">
                               <p className="text-gray-600">
-                                Order Item Count:{" "}
+                                {t("orders.orderItemCount")}{" "}
                                 <span className="text-black font-medium">
                                   {order?.orderItems?.length}
                                 </span>
                               </p>
                               <p className="text-gray-600">
-                                Payment Status:{" "}
+                                {t("orders.paymentStatus")}{" "}
                                 <span className="text-black font-medium">
-                                  Paid by Stripe
+                                  {t("orders.paidByStripe")}
                                 </span>
                               </p>
                               <p className="text-gray-600">
-                                Order Amount:{" "}
+                                {t("orders.orderAmount")}{" "}
                                 <span className="text-black font-medium">
                                   <FormattedPrice amount={totalAmt} />
                                 </span>
@@ -144,7 +145,7 @@ const Orders = () => {
                                     <dl className="flex space-x-4 divide-x divide-gray-200 text-sm sm:space-x-6">
                                       <div className="flex">
                                         <dt className="font-medium text-gray-900">
-                                          Quantity
+                                          {t("orders.quantity")}
                                         </dt>
                                         <dd className="ml-2 text-gray-700">
                                           {item?.quantity}
@@ -152,7 +153,7 @@ const Orders = () => {
                                       </div>
                                       <div className="flex pl-4 sm:pl-6">
                                         <dt className="text-black font-bold">
-                                          Price
+                                          {t("orders.price")}
                                         </dt>
                                         <dd className="ml-2 text-gray-700">
                                           <span className="text-black font-bold">
@@ -164,7 +165,7 @@ const Orders = () => {
                                       </div>
                                       <div className="flex pl-4 sm:pl-6">
                                         <dt className="font-medium text-gray-900">
-                                          SubTotal
+                                          {t("orders.subTotal")}
                                         </dt>
                                         <dd className="ml-2 text-gray-700">
                                           <span className="text-black font-bold">
@@ -194,13 +195,13 @@ const Orders = () => {
         </div>
       ) : (
         <div className="flex flex-col items-center">
-          <p className="text-2xl font-semibold">No orders yet</p>
-          <p>You did not create any purchase from us</p>
+          <p className="text-2xl font-semibold">{t("orders.noOrders")}</p>
+          <p>{t("orders.noPurchaseMessage")}</p>
           <Link
             to={"/product"}
             className="mt-2 bg-gray-800 text-gray-100 px-6 py-2 rounded-md hover:bg-black hover:text-white duration-200"
           >
-            Go to Shopping
+            {t("orders.goToShopping")}
           </Link>
         </div>
       )}

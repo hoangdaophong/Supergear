@@ -7,6 +7,7 @@ import { auth, db } from "../lib/firebase";
 import upload from "../lib/upload";
 import { doc, setDoc } from "firebase/firestore";
 import Login from "./Login";
+import { useTranslation } from "react-i18next";
 
 const Registration = () => {
   const [login, setLogin] = useState(true);
@@ -16,6 +17,7 @@ const Registration = () => {
     file: null,
     url: "",
   });
+  const { t } = useTranslation();
 
   const handleAvatar = (e: any) => {
     if (e.target.files[0]) {
@@ -49,17 +51,17 @@ const Registration = () => {
       let errorMessage;
       switch (error.code) {
         case "auth/invalid-email":
-          errorMessage = "Please enter a valid email.";
+          errorMessage = t("profile.errors.invalidEmail");
           break;
         case "auth/missing-password":
-          errorMessage = "Please enter a password.";
+          errorMessage = t("profile.errors.missingPassword");
           break;
         case "auth/email-already-in-use":
-          errorMessage = "This email is already in use. Try another email.";
+          errorMessage = t("profile.errors.emailInUse");
           break;
         // Add more cases as needed
         default:
-          errorMessage = "An error occurred. Please try again.";
+          errorMessage = t("profile.errors.generic");
       }
       console.log("Error", error);
       setErrMsg(errorMessage);
@@ -75,21 +77,20 @@ const Registration = () => {
         <div className="bg-gray-950 rounded-lg">
           <form
             onSubmit={handleRegistration}
-            className="max-w-5xl mx-auto pt-10 px-10 lg:px-0 text-white"
+            className="max-w-4xl mx-auto pt-10 px-10 md:px-0 text-white"
           >
             <div className="border-b border-b-white/10 pb-5">
               <h2 className="text-lg font-semibold uppercase leading-7">
-                Registration Form
+                {t("profile.registrationForm")}
               </h2>
               <p className="mt-1 text-sm leading-6 text-gray-400">
-                You need to provide required information to get register with
-                us.
+                {t("profile.registrationLead")}
               </p>
             </div>
             <div className="border-b border-b-white/10 pb-5">
               <div className="mt-5 grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-6">
                 <div className="sm:col-span-3">
-                  <Label title="First name" htmlFor="firstName" />
+                  <Label title={t("profile.firstName")} htmlFor="firstName" />
                   <input
                     type="text"
                     name="firstName"
@@ -97,7 +98,7 @@ const Registration = () => {
                   />
                 </div>
                 <div className="sm:col-span-3">
-                  <Label title="Last name" htmlFor="lastName" />
+                  <Label title={t("profile.lastName")} htmlFor="lastName" />
                   <input
                     type="text"
                     name="lastName"
@@ -105,7 +106,7 @@ const Registration = () => {
                   />
                 </div>
                 <div className="sm:col-span-4">
-                  <Label title="Email address" htmlFor="email" />
+                  <Label title={t("profile.email")} htmlFor="email" />
                   <input
                     type="email"
                     name="email"
@@ -113,7 +114,7 @@ const Registration = () => {
                   />
                 </div>
                 <div className="sm:col-span-4">
-                  <Label title="Password" htmlFor="password" />
+                  <Label title={t("profile.password")} htmlFor="password" />
                   <input
                     type="password"
                     name="password"
@@ -123,7 +124,7 @@ const Registration = () => {
                 <div className="col-span-full">
                   <div className="mt-2 flex items-center gap-x-3">
                     <div className="flex-1">
-                      <Label title="Cover photo" />
+                      <Label title={t("profile.coverPhoto")} />
                       <div className="mt-2 flex justify-center rounded-lg border border-dashed border-white/25 px-6 py-4">
                         <div className="flex flex-col items-center text-center">
                           <div className="w-14 h-14 border border-gray-600 rounded-full p-1">
@@ -140,7 +141,7 @@ const Registration = () => {
                           <div className="mt-4 flex items-center mb-1 text-sm leading-6 text-gray-400">
                             <label htmlFor="file-upload">
                               <span className="relative cursor-pointer rounded-md px-2 py-1 bg-gray-900 font-semibold text-gray-200 hover:bg-gray-800">
-                                Upload a file
+                                {t("profile.uploadFile")}
                               </span>
                               <input
                                 type="file"
@@ -150,10 +151,10 @@ const Registration = () => {
                                 onChange={handleAvatar}
                               />
                             </label>
-                            <p className="pl-1">or drag and drop</p>
+                            <p className="pl-1">{t("profile.orDragDrop")}</p>
                           </div>
                           <p className="text-xs leading-5 text-gray-400">
-                            PNG, JPG, GIF up to 10MB
+                            {t("profile.uploadHint")}
                           </p>
                         </div>
                       </div>
@@ -174,16 +175,16 @@ const Registration = () => {
                 loading ? "bg-gray-500 hover:bg-gray-500" : "bg-indigo-700"
               }`}
             >
-              {loading ? "Loading..." : "Send"}
+              {loading ? t("profile.loading") : t("profile.submit")}
             </button>
           </form>
           <p className="text-sm leading-6 text-gray-400 text-center -mt-2 py-10">
-            Already have an Account{" "}
+            {t("profile.alreadyHaveAccount")}{" "}
             <button
               onClick={() => setLogin(true)}
               className="text-gray-200 font-semibold underline underline-offset-2 decoration-[1px] hover:text-white duration-200"
             >
-              Login
+              {t("profile.login")}
             </button>
           </p>
         </div>

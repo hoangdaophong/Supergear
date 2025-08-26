@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   Menu,
   MenuButton,
@@ -17,18 +18,20 @@ import { getData } from "../lib";
 import { CategoryProps, ProductProps } from "../../type";
 import ProductCard from "./ProductCard";
 import { store } from "../lib/store";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const bottomNavigation = [
-  { title: "Home", link: "/" },
-  { title: "Shop", link: "/product" },
-  { title: "Cart", link: "/cart" },
-  { title: "Orders", link: "/orders" },
-  { title: "My Account", link: "/profile" },
-  { title: "Blog", link: "/blog" },
+  { titleKey: "header.nav.home", link: "/" },
+  { titleKey: "header.nav.shop", link: "/product" },
+  { titleKey: "header.nav.cart", link: "/cart" },
+  { titleKey: "header.nav.orders", link: "/orders" },
+  { titleKey: "header.nav.account", link: "/profile" },
+  { titleKey: "header.nav.blog", link: "/blog" },
 ];
 
 const Header = () => {
   const [searchText, setSearchText] = useState("");
+  const { t } = useTranslation();
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -68,7 +71,7 @@ const Header = () => {
   }, [searchText]);
 
   return (
-    <div className="w-full  bg-whiteText sticky top-0 z-50">
+    <div className="w-full bg-whiteText sticky top-0 z-50">
       <div className="max-w-screen-xl mx-auto h-20 flex items-center justify-between px-4 lg:px-0">
         {/* Logo */}
         <Link to={"/"}>
@@ -80,7 +83,7 @@ const Header = () => {
             type="text"
             onChange={(e) => setSearchText(e.target.value)}
             value={searchText}
-            placeholder="Search product"
+            placeholder={t("header.searchPlaceholder")}
             className="w-full flex-1 rounded-full text-gray-900 text-lg placeholder:text-base placeholder: tracking-wide shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder: font-normal focus:ring-1 focus:ring-darkText sm:text-sm px-4 py-2"
           />
           {searchText ? (
@@ -96,7 +99,7 @@ const Header = () => {
         {searchText && (
           <div className="absolute left-0 top-20 w-full mx-auto max-h-[500px] px-10 py-5 bg-white z-20 overflow-y-scroll text-black shadow-lg shadow-skyText scrollbar-hide">
             {filteredProducts.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-5">
                 {filteredProducts?.map((item: ProductProps) => (
                   <ProductCard
                     key={item?._id}
@@ -108,10 +111,10 @@ const Header = () => {
             ) : (
               <div className="py-10 bg-gray-50 w-full flex items-center justify-center border border-gray-600 rounded-md">
                 <p className="text-xl font-normal">
-                  Nothing matches with your search keywords{" "}
+                  {t("header.search.noMatch")}{" "}
                   <span className="underline underline-offset-2 decoration-[1px] text-red-500 font-semibold">{`(${searchText})`}</span>
                 </p>
-                . Please try again
+                . {t("header.search.pleaseTryAgain")}
               </div>
             )}
           </div>
@@ -141,13 +144,15 @@ const Header = () => {
               {cartProduct?.length > 0 ? cartProduct?.length : "0"}
             </span>
           </Link>
+          <LanguageSwitcher />
         </div>
       </div>
       <div className="w-full bg-darkText text-whiteText">
         <Container className="py-2 max-w-4xl flex items-center gap-5 justify-between">
           <Menu>
             <MenuButton className="inline-flex items-center gap-2 rounded-md border border-gray-400 hover:border-white py-1.5 px-3 font-semibold text-gray-300 hover:text-whiteText">
-              Select Category <FaChevronDown className="text-base mt-1" />
+              {t("header.selectCategory")}{" "}
+              <FaChevronDown className="text-base mt-1" />
             </MenuButton>
             <Transition
               enter="transition ease-out duration-75"
@@ -179,13 +184,14 @@ const Header = () => {
               </MenuItems>
             </Transition>
           </Menu>
-          {bottomNavigation.map(({ title, link }) => (
+
+          {bottomNavigation.map(({ titleKey, link }) => (
             <Link
               to={link}
-              key={title}
+              key={titleKey}
               className="uppercase md:inline-flex text-sm font-semibold text-whiteText/90 hover:text-whiteText duration-200 relative overflow-hidden group"
             >
-              {title}
+              {t(titleKey)}
               <span className="inline-flex w-full h-[1px] bg-whiteText absolute bottom-0 left-0 transform -translate-x-[105%] group-hover:translate-x-0 duration-300" />
             </Link>
           ))}

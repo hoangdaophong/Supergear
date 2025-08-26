@@ -1,0 +1,204 @@
+{
+  "header": {
+    "searchPlaceholder": "Tìm sản phẩm",
+    "selectCategory": "Chọn danh mục",
+    "nav": {
+      "home": "Trang chủ",
+      "shop": "Cửa hàng",
+      "cart": "Giỏ hàng",
+      "orders": "Đơn hàng",
+      "account": "Tài khoản",
+      "blog": "Bài viết"
+    },
+    "search": {
+      "noMatch": "Không có kết quả phù hợp với từ khóa của bạn",
+      "pleaseTryAgain": "Vui lòng thử lại"
+    }
+  },
+  "notFound": {
+    "doesNotExist": "không tồn tại",
+    "sorry": "Rất tiếc, chúng tôi không thể tìm thấy trang {{path}} mà bạn yêu cầu.",
+    "popularPages": "Trang phổ biến"
+  },
+  "footer": {
+    "copyright": "@2024 Giải pháp thương mại điện tử. Bảo lưu mọi quyền.",
+    "title": "Chúng tôi xây dựng doanh nghiệp dựa trên dịch vụ khách hàng",
+    "incentives": {
+      "freeShipping": {
+        "name": "Miễn phí vận chuyển",
+        "description": "Thực ra không miễn phí, chúng tôi chỉ tính vào giá sản phẩm. Ai đó đang trả tiền, và không phải chúng tôi."
+      },
+      "warranty": {
+        "name": "Bảo hành 10 năm",
+        "description": "Nếu hỏng trong 10 năm đầu, chúng tôi sẽ thay thế. Sau đó bạn tự lo nhé."
+      },
+      "exchanges": {
+        "name": "Đổi trả",
+        "description": "Nếu không thích, hãy đổi với bạn bè của bạn. Đừng gửi về đây nhé."
+      }
+    }
+  },
+  "blog": {
+    "title": "Bài viết của chúng tôi"
+  },
+  "discountedBanner": {
+    "popularSearch": "Tìm kiếm phổ biến",
+    "searchItems": {
+      "smartWatches": "Đồng hồ thông minh",
+      "headphones": "Tai nghe",
+      "cameras": "Máy ảnh",
+      "audio": "Âm thanh",
+      "laptopComputers": "Laptop & Máy tính",
+      "cellPhone": "Điện thoại"
+    },
+    "sonyHeadphone": "Tai nghe Sony",
+    "discount20": "Giảm 20%",
+    "description": "Bạn đang ra ngoài để vui chơi hoặc bước ra để tạo dựng",
+    "brandsTitle": "Thương hiệu chúng tôi phân phối"
+  },
+  "productList": {
+    "topSelling": "Sản phẩm bán chạy nhất",
+    "viewAll": "Xem tất cả sản phẩm"
+  },
+  "pagination": {
+    "productsFrom": "Sản phẩm từ {{start}} đến {{end}} trong tổng số {{total}}"
+  },
+  "categories": {
+    "popularCategories": "Danh mục phổ biến",
+    "viewAllCategories": "Xem tất cả danh mục"
+  },
+  "highlights": {
+    "sectionTitle": "Điểm nổi bật"
+  },
+  "homeBanner": {
+    "title": "Máy lọc không khí Mi",
+    "subtitle": "Món quà công nghệ mới mà bạn đang mong ước ngay tại đây."
+  },
+  "linkButton": {
+    "startShopping": "Bắt đầu mua sắm"
+  },
+  "addToCart": {
+    "addToCart": "Thêm vào giỏ hàng",
+    "addedSuccessfully": "{{productName}} đã được thêm thành công!",
+    "decreasedSuccessfully": "{{productName}} đã giảm thành công",
+    "productUndefined": "Sản phẩm không xác định!",
+    "cannotDecreaseLessThanOne": "Bạn không thể giảm ít hơn 1"
+  },
+  "categoryFilters": {
+    "filters": "Bộ lọc",
+    "selectCategories": "Chọn danh mục"
+  },
+  "checkout": {
+    "checkout": "Thanh toán",
+    "needToSignIn": "Cần đăng nhập để thanh toán"
+  },
+  "cart": {
+    "title": "Giỏ hàng",
+    "orderSummary": "Tóm tắt đơn hàng",
+    "subtotal": "Tạm tính",
+    "shippingEstimate": "Ước tính vận chuyển",
+    "taxEstimate": "Ước tính thuế",
+    "totalDiscount": "Tổng giảm giá",
+    "orderTotal": "Tổng đơn hàng",
+    "emptyCart": {
+      "title": "Giỏ hàng",
+      "description": "Giỏ hàng của bạn trống. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus libero ab nulla iure quibusdam obcaecati debitis minima explicabo quidem tenetur ad, voluptate iusto ratione natus. Maxime molestiae doloremque eaque nesciunt!",
+      "goToShopping": "đi mua sắm"
+    }
+  },
+  "cartProduct": {
+    "brand": "Thương hiệu:",
+    "category": "Danh mục:",
+    "deletedSuccessfully": "đã được xóa thành công!",
+    "inStock": "Còn hàng",
+    "youAreSaving": "Bạn đang tiết kiệm",
+    "uponPurchase": "khi mua hàng"
+  },
+  "product": {
+    "reviews": "đánh giá",
+    "peopleViewing": "người đang xem sản phẩm này",
+    "youAreSaving": "Bạn đang tiết kiệm",
+    "uponPurchase": "khi mua hàng",
+    "color": "Màu sắc:",
+    "clear": "Xóa",
+    "brand": "Thương hiệu:",
+    "category": "Danh mục:",
+    "buyNow": "Mua ngay",
+    "guaranteedCheckout": "Đảm bảo thanh toán an toàn & bảo mật",
+    "productsCollection": "Bộ sưu tập sản phẩm"
+  },
+  "success": {
+    "processingTitle": "Thanh toán đơn hàng của bạn đang được xử lý",
+    "acceptedTitle": "Thanh toán của bạn đã được chấp nhận bởi supergear.com",
+    "processingDescription": "Khi hoàn thành, bạn có thể xem đơn hàng hoặc tiếp tục mua sắm với chúng tôi",
+    "acceptedDescription": "Bây giờ bạn có thể xem đơn hàng hoặc tiếp tục mua sắm với chúng tôi",
+    "viewOrders": "Xem đơn hàng",
+    "continueShopping": "Tiếp tục mua sắm",
+    "paymentSuccess": "Thanh toán được chấp nhận thành công & đơn hàng đã được lưu!",
+    "orderError": "Lỗi khi lưu dữ liệu đơn hàng"
+  },
+  "orders": {
+    "title": "Chi tiết đơn hàng khách hàng",
+    "customerName": "Tên khách hàng",
+    "totalOrders": "Tổng đơn hàng",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum porro, nemo quisquam explicabo, mollitia inventore nobis id maiores odio incidunt quidem rerum delectus quaerat similique voluptates dolores perferendis numquam quae.",
+    "trackingNumber": "Mã theo dõi:",
+    "orderShipped": "Đơn hàng của bạn",
+    "hasShipped": "đã được gửi và sẽ đến với bạn sớm.",
+    "orderItemCount": "Số lượng sản phẩm:",
+    "paymentStatus": "Trạng thái thanh toán:",
+    "paidByStripe": "Đã thanh toán bằng Stripe",
+    "orderAmount": "Tổng đơn hàng:",
+    "quantity": "Số lượng",
+    "price": "Giá",
+    "subTotal": "Tạm tính",
+    "noOrders": "Chưa có đơn hàng nào",
+    "noPurchaseMessage": "Bạn chưa tạo bất kỳ giao dịch mua nào từ chúng tôi",
+    "goToShopping": "Đi mua sắm"
+  },
+  "profile": {
+    "welcome": "Chào mừng trở lại,",
+    "lorem": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit, minus rem. Quaerat natus in sit cupiditate expedita odio at sed saepe quos? Maiores, labore suscipit rerum ipsa iste eius voluptates. Dolore laboriosam aut alias iusto quidem necessitatibus quibusdam soluta in enim veritatis, commodi voluptatem inventore iste harum est id autem.",
+    "editProfile": "Chỉnh sửa hồ sơ",
+    "addAddress": "Thêm địa chỉ",
+    "logout": "Đăng xuất",
+    "proOnlyEdit": "Tính năng chỉnh sửa hồ sơ chưa được hoàn thiện!",
+    "proOnlyAddress": "Tính năng thêm địa chỉ chưa được hoàn thiện!",
+    "registrationForm": "Biểu mẫu đăng ký",
+    "registrationLead": "Bạn cần cung cấp thông tin bắt buộc để đăng ký.",
+    "firstName": "Tên",
+    "lastName": "Họ",
+    "email": "Địa chỉ email",
+    "password": "Mật khẩu",
+    "coverPhoto": "Ảnh đại diện",
+    "uploadFile": "Tải tệp lên",
+    "orDragDrop": "hoặc kéo và thả",
+    "uploadHint": "PNG, JPG, GIF tối đa 10MB",
+    "submit": "Gửi",
+    "loading": "Đang tải...",
+    "alreadyHaveAccount": "Đã có tài khoản",
+    "login": "Đăng nhập",
+    "errors": {
+      "invalidEmail": "Vui lòng nhập email hợp lệ.",
+      "missingPassword": "Vui lòng nhập mật khẩu.",
+      "emailInUse": "Email này đã được sử dụng. Hãy thử email khác.",
+      "generic": "Đã xảy ra lỗi. Vui lòng thử lại."
+    }
+  },
+  "login": {
+    "title": "Biểu mẫu đăng nhập",
+    "description": "Vui lòng nhập thông tin đăng nhập của bạn.",
+    "email": "Địa chỉ email",
+    "password": "Mật khẩu",
+    "submit": "Đăng nhập",
+    "noAccount": "Chưa có tài khoản",
+    "register": "Đăng ký",
+    "errors": {
+      "userNotFound": "Không tìm thấy người dùng với email này.",
+      "wrongPassword": "Mật khẩu không đúng.",
+      "invalidEmail": "Địa chỉ email không hợp lệ.",
+      "invalidCredential": "Email hoặc mật khẩu không khớp",
+      "generic": "Đã xảy ra lỗi. Vui lòng thử lại."
+    }
+  }
+}

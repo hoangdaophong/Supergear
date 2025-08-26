@@ -5,9 +5,11 @@ import { getData } from "../lib";
 import Title from "./Title";
 import { Link } from "react-router-dom";
 import { CategoryProps } from "../../type";
+import { useTranslation } from "react-i18next";
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,16 +23,17 @@ const Categories = () => {
     };
     fetchData();
   }, []);
+
   return (
     <Container>
       <div className="mb-10">
         <div className="flex items-center justify-between">
-          <Title text="Popular categories" />
+          <Title text={t("categories.popularCategories")} />
           <Link
             to={"/category/tvAndAudio"}
             className="font-medium relative group overflow-hidden"
           >
-            View All Categories{" "}
+            {t("categories.viewAllCategories")}{" "}
             <span className="absolute bottom-0 left-0 w-full block h-[1px] bg-gray-600 -translate-x-[100%] group-hover:translate-x-0 duration-300" />
           </Link>
         </div>

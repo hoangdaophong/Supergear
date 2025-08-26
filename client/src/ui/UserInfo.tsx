@@ -2,8 +2,10 @@ import toast from "react-hot-toast";
 import { UserTypes } from "../../type";
 import { auth } from "../lib/firebase";
 import Container from "./Container";
+import { useTranslation } from "react-i18next";
 
 const UserInfo = ({ currentUser }: UserTypes) => {
+  const { t } = useTranslation();
   console.log(currentUser);
 
   return (
@@ -21,43 +23,34 @@ const UserInfo = ({ currentUser }: UserTypes) => {
           />
           <div className="text-start flex-1">
             <h2 className="text-xl font-bold tracking-tight sm:text-4xl">
-              Welcome back, dear{" "}
+              {t("profile.welcome")}{" "}
               <span className="underline underline-offset-2 decoration-[1px] font-medium">
                 {currentUser?.firstName} {currentUser?.lastName}
               </span>
             </h2>
             <p className="text-start *:mt-6 max-w-3xl text-base mt-3 leading-6 text-gray-300">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Suscipit, minus rem. Quaerat natus in sit cupiditate expedita odio
-              at sed saepe quos? Maiores, labore suscipit rerum ipsa iste eius
-              voluptates. Dolore laboriosam aut alias iusto quidem
-              necessitatibus quibusdam soluta in enim veritatis, commodi
-              voluptatem inventore iste harum est id autem.
+              {t("profile.lorem")}
             </p>
           </div>
         </div>
         <div className="mt-10 flex items-center gap-x-5 px-4">
           <button
-            onClick={() =>
-              toast.error("Edit profile option available to pro version!")
-            }
+            onClick={() => toast.error(t("profile.proOnlyEdit"))}
             className="rounded-md bg-white px-8 py-2.5 text-sm font-semibold  text-gray-900 hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
           >
-            Edit profile
+            {t("profile.editProfile")}
           </button>
           <button
-            onClick={() =>
-              toast.error("Add Address option available to pro version!")
-            }
+            onClick={() => toast.error(t("profile.proOnlyAddress"))}
             className="rounded-md bg-white px-8 py-2.5 text-sm font-semibold  text-gray-900 hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
           >
-            Add Address
+            {t("profile.addAddress")}
           </button>
           <button
             onClick={() => auth.signOut()}
             className="rounded-md bg-white px-8 py-2.5 text-sm font-semibold  text-gray-900 hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
           >
-            Logout
+            {t("profile.logout")}
           </button>
         </div>
         <svg

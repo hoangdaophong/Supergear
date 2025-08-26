@@ -3,10 +3,13 @@ import Label from "./Label";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../lib/firebase";
 import Loading from "./Loading";
+import { useTranslation } from "react-i18next";
 
 const Login = ({ setLogin }: { setLogin: any }) => {
   const [loading, setLoading] = useState(false);
   const [errMsg, setErrMsg] = useState("");
+  const { t } = useTranslation();
+
   const handleLogin = async (e: any) => {
     e.preventDefault();
     try {
@@ -19,20 +22,20 @@ const Login = ({ setLogin }: { setLogin: any }) => {
       let errorMessage;
       switch (error.code) {
         case "auth/user-not-found":
-          errorMessage = "No user found with this email.";
+          errorMessage = t("login.errors.userNotFound");
           break;
         case "auth/wrong-password":
-          errorMessage = "Incorrect password.";
+          errorMessage = t("login.errors.wrongPassword");
           break;
         case "auth/invalid-email":
-          errorMessage = "Invalid email address.";
+          errorMessage = t("login.errors.invalidEmail");
           break;
         case "auth/invalid-credential":
-          errorMessage = "Email or Password not matched";
+          errorMessage = t("login.errors.invalidCredential");
           break;
         // Add more cases as needed
         default:
-          errorMessage = "An error occurred. Please try again.";
+          errorMessage = t("login.errors.generic");
       }
       console.log("Error", error);
       setErrMsg(errorMessage);
@@ -40,24 +43,25 @@ const Login = ({ setLogin }: { setLogin: any }) => {
       setLoading(false);
     }
   };
+
   return (
     <div className="bg-gray-950 rounded-lg">
       <form
         onSubmit={handleLogin}
-        className="max-w-5xl mx-auto pt-10 px-10 lg:px-0 text-white"
+        className="max-w-4xl mx-auto pt-10 px-10 md:px-0 text-white"
       >
         <div className="border-b border-b-white/10 pb-5">
           <h2 className="text-lg font-semibold uppercase leading-7">
-            Registration Form
+            {t("login.title")}
           </h2>
           <p className="mt-1 text-sm leading-6 text-gray-400">
-            You need to provide required information to get register with us.
+            {t("login.description")}
           </p>
         </div>
         <div className="border-b border-b-white/10 pb-5">
           <div className="mt-5 grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-6">
             <div className="sm:col-span-3">
-              <Label title="Email address" htmlFor="email" />
+              <Label title={t("login.email")} htmlFor="email" />
               <input
                 type="email"
                 name="email"
@@ -65,7 +69,7 @@ const Login = ({ setLogin }: { setLogin: any }) => {
               />
             </div>
             <div className="sm:col-span-3">
-              <Label title="Password" htmlFor="password" />
+              <Label title={t("login.password")} htmlFor="password" />
               <input
                 type="password"
                 name="password"
@@ -84,16 +88,16 @@ const Login = ({ setLogin }: { setLogin: any }) => {
           type="submit"
           className="mt-5 bg-indigo-700 w-full py-2 uppercase text-base font-bold tracking-wide text-gray-300 rounded-md hover:text-white hover:bg-indigo-600 duration-200"
         >
-          {loading ? "Loading..." : "Login"}
+          {loading ? t("profile.loading") : t("login.submit")}
         </button>
       </form>
       <p className="text-sm leading-6 text-gray-400 text-center -mt-2 py-10">
-        Does not have an Account{" "}
+        {t("login.noAccount")}{" "}
         <button
           onClick={() => setLogin(false)}
           className="text-gray-200 font-semibold underline underline-offset-2 decoration-[1px] hover:text-white duration-200"
         >
-          Register
+          {t("login.register")}
         </button>
       </p>
       {loading && <Loading />}

@@ -6,15 +6,23 @@ import { IoClose } from "react-icons/io5";
 import { store } from "../lib/store";
 import toast from "react-hot-toast";
 import { FaCheck } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const CartProduct = ({ product }: { product: ProductProps }) => {
   const { removeFromCart } = store();
+  const { t } = useTranslation();
+
   const handleRemoveProduct = () => {
     if (product) {
       removeFromCart(product?._id);
-      toast.success(`${product?.name.substring(0, 20)} deleted successfully!`);
+      toast.success(
+        `${product?.name.substring(0, 20)} ${t(
+          "cartProduct.deletedSuccessfully"
+        )}`
+      );
     }
   };
+
   return (
     <div className="flex py-6 sm:py-10">
       <Link to={`/product/${product?._id}`}>
@@ -31,10 +39,12 @@ const CartProduct = ({ product }: { product: ProductProps }) => {
               {product?.name.substring(0, 80)}
             </h3>
             <p className="text-xs">
-              Brand: <span className=" font-medium">{product?.brand}</span>
+              {t("cartProduct.brand")}{" "}
+              <span className=" font-medium">{product?.brand}</span>
             </p>
             <p className="text-xs">
-              Category: <span className="font-medium">{product?.category}</span>
+              {t("cartProduct.category")}{" "}
+              <span className="font-medium">{product?.category}</span>
             </p>
             <div className="flex items-center gap-6 mt-2">
               <p className="text-base font-semibold">
@@ -60,17 +70,17 @@ const CartProduct = ({ product }: { product: ProductProps }) => {
           {product?.isStock && (
             <p className="mt-4 flex space-x-2 text-sm text-gray-700">
               <FaCheck className="text-lg text-green-500" />{" "}
-              <span>In Stock</span>
+              <span>{t("cartProduct.inStock")}</span>
             </p>
           )}
           <p>
-            You are saving{" "}
+            {t("cartProduct.youAreSaving")}{" "}
             <span className="text-sm font-semibold text-green-500">
               <FormattedPrice
                 amount={product?.regularPrice - product?.discountedPrice}
               />
             </span>{" "}
-            upon purchase
+            {t("cartProduct.uponPurchase")}
           </p>
         </div>
       </div>

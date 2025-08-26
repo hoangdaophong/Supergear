@@ -4,9 +4,12 @@ import { getData } from "../lib";
 import Container from "./Container";
 import Title from "./Title";
 import { BlogProps } from "../../type";
+import { useTranslation } from "react-i18next";
 
 const Blog = () => {
   const [blogsData, setBlogsData] = useState([]);
+  const { t } = useTranslation();
+
   useEffect(() => {
     const fetchData = async () => {
       const endpoint = `${config?.baseUrl}/blogs`;
@@ -20,9 +23,10 @@ const Blog = () => {
 
     fetchData();
   }, []);
+
   return (
     <Container>
-      <Title text="Our Blog Posts" className="text-center" />
+      <Title text={t("blog.title")} className="text-center" />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-7">
         {blogsData?.map((item: BlogProps) => (
           <div key={item?._id} className="group cursor-pointer">

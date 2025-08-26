@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import PriceTag from "./PriceTag";
+import { useTranslation } from "react-i18next";
 
 const AddToCartBtn = ({
   className,
@@ -21,6 +22,7 @@ const AddToCartBtn = ({
     null
   );
   const { addToCart, cartProduct, decreaseQuantity } = store();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const availableItem = cartProduct.find(
@@ -33,9 +35,13 @@ const AddToCartBtn = ({
   const handleAddToCart = () => {
     if (product) {
       addToCart(product);
-      toast.success(`${product?.name.substring(0, 10)} added successfully!`);
+      toast.success(
+        t("addToCart.addedSuccessfully", {
+          productName: product?.name.substring(0, 10),
+        })
+      );
     } else {
-      toast.error("Product is undefined!");
+      toast.error(t("addToCart.productUndefined"));
     }
   };
 
@@ -44,10 +50,12 @@ const AddToCartBtn = ({
       if (existingProduct?.quantity > 1) {
         decreaseQuantity(existingProduct?._id);
         toast.success(
-          `${product?.name.substring(0, 10)} decreased successfully`
+          t("addToCart.decreasedSuccessfully", {
+            productName: product?.name.substring(0, 10),
+          })
         );
       } else {
-        toast.error("You can not decrease less than 1");
+        toast.error(t("addToCart.cannotDecreaseLessThanOne"));
       }
     } else {
     }
@@ -108,7 +116,7 @@ const AddToCartBtn = ({
         </div>
       ) : (
         <button onClick={handleAddToCart} className={newClassName}>
-          {title ? title : "Add to cart"}
+          {title ? title : t("addToCart.addToCart")}
         </button>
       )}
     </>

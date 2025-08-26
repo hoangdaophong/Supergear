@@ -15,6 +15,7 @@ import AddToCartBtn from "../ui/AddToCartBtn";
 import { productPayment } from "../assets";
 import ProductCard from "../ui/ProductCard";
 import CategoryFilters from "../ui/CategoryFilters";
+import { useTranslation } from "react-i18next";
 
 const Product = () => {
   const [productData, setProductData] = useState<ProductProps | null>(null);
@@ -23,6 +24,7 @@ const Product = () => {
   const [imgUrl, setImgUrl] = useState("");
   const [color, setColor] = useState("");
   const { id } = useParams();
+  const { t } = useTranslation();
 
   const endpoint = id
     ? `${config?.baseUrl}/products/${id}`
@@ -99,7 +101,9 @@ const Product = () => {
                       <MdOutlineStarOutline />
                       <MdOutlineStarOutline />
                     </div>
-                    <p className="text-base font-semibold">{`(${productData?.reviews} reviews)`}</p>
+                    <p className="text-base font-semibold">{`(${
+                      productData?.reviews
+                    } ${t("product.reviews")})`}</p>
                   </div>
                 </div>
                 <p className="flex items-center">
@@ -107,10 +111,10 @@ const Product = () => {
                   <span className="font-semibold mr-1">
                     {productData?.reviews}
                   </span>{" "}
-                  peoples are viewing this right now
+                  {t("product.peopleViewing")}
                 </p>
                 <p>
-                  You are saving{" "}
+                  {t("product.youAreSaving")}{" "}
                   <span className="text-base font-semibold text-green-500">
                     <FormattedPrice
                       amount={
@@ -119,12 +123,12 @@ const Product = () => {
                       }
                     />
                   </span>{" "}
-                  upon purchase
+                  {t("product.uponPurchase")}
                 </p>
                 <div>
                   {color && (
                     <p>
-                      Color:{" "}
+                      {t("product.color")}{" "}
                       <span
                         className="font-semibold capitalize"
                         style={{ color: color }}
@@ -156,21 +160,21 @@ const Product = () => {
                       onClick={() => setColor("")}
                       className="font-semibold mt-1 flex items-center gap-1 hover:text-red-600 duration-200"
                     >
-                      <IoClose /> Clear
+                      <IoClose /> {t("product.clear")}
                     </button>
                   )}
                 </div>
                 <p>
-                  Brand:{" "}
+                  {t("product.brand")}{" "}
                   <span className="font-medium">{productData?.brand}</span>
                 </p>
                 <p>
-                  Category:{" "}
+                  {t("product.category")}{" "}
                   <span className="font-medium">{productData?.category}</span>
                 </p>
                 <AddToCartBtn
                   product={productData}
-                  title="Buy now"
+                  title={t("product.buyNow")}
                   className="bg-black/80 py-3 text-base text-gray-200 hover:scale-100 hover:text-white duration-200"
                 />
                 <div className="bg-[#f7f7f7] p-5 rounded-md flex flex-col items-center justify-center gap-2">
@@ -180,7 +184,7 @@ const Product = () => {
                     className="w-auto object-cover"
                   />
                   <p className="font-semibold">
-                    Guaranteed safe & secure checkout
+                    {t("product.guaranteedCheckout")}
                   </p>
                 </div>
               </div>
@@ -190,7 +194,7 @@ const Product = () => {
               <CategoryFilters id={id} />
               <div>
                 <p className="text-4xl font-semibold mb-5 text-center">
-                  Products Collection
+                  {t("product.productsCollection")}
                 </p>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                   {allProducts?.map((item: ProductProps) => (

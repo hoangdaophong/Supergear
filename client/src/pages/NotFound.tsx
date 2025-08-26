@@ -6,6 +6,7 @@ import {
 } from "react-icons/hi2";
 import { LuChevronRight } from "react-icons/lu";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Container from "../ui/Container";
 import LinkButton from "../ui/LinkButton";
 // import LinkButton from "../ui/LinkButton";
@@ -38,6 +39,7 @@ const links = [
 ];
 const NotFound = () => {
   const { pathname } = useLocation();
+  const { t } = useTranslation();
   const path = pathname.split("/").filter(Boolean).pop();
 
   return (
@@ -50,14 +52,14 @@ const NotFound = () => {
               <span className="text-redText underline underline-offset-2 decoration-[1px] capitalize">
                 {path}
               </span>{" "}
-              does not exist
+              {t("notFound.doesNotExist")}
             </h1>
             <p className="mt-2 text-base leading-7 text-gray-600 sm:mt-6 sm:text-lg sm:leading-8">
-              Sorry, we couldn’t find the {path} page you’re looking for.
+              {t("notFound.sorry", { path })}
             </p>
           </div>
           <div className="mx-auto mt-6 flow-root max-w-lg">
-            <h2 className="sr-only">Popular pages</h2>
+            <h2 className="sr-only">{t("notFound.popularPages")}</h2>
             <ul
               role="list"
               className="divide-y divide-gray-900/5 border-b border-gray-900/5 flex flex-col"
