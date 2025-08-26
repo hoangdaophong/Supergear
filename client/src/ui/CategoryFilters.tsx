@@ -4,10 +4,13 @@ import { getData } from "../lib";
 import { RotatingLines } from "react-loader-spinner";
 import { CategoryProps } from "../../type";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const CategoryFilters = ({ id }: { id: string | undefined }) => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
+  const { t } = useTranslation();
+
   useEffect(() => {
     const fetchData = async () => {
       const endpoint = `${config?.baseUrl}/categories`;
@@ -24,12 +27,13 @@ const CategoryFilters = ({ id }: { id: string | undefined }) => {
 
     fetchData();
   }, []);
+
   return (
     <div className="md:inline-flex flex-col gap-6">
-      <p className="text-3xl font-bold">Filters</p>
+      <p className="text-3xl font-bold">{t("categoryFilters.filters")}</p>
       <div>
         <p className="text-sm uppercase font-semibold underline underline-offset-2 decoration-[1px] mb-2">
-          Select Categories
+          {t("categoryFilters.selectCategories")}
         </p>
         <div className="flex flex-col gap-y-2 min-w-40">
           {loading ? (

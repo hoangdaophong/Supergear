@@ -1,0 +1,204 @@
+{
+  "header": {
+    "searchPlaceholder": "Search product",
+    "selectCategory": "Select Category",
+    "nav": {
+      "home": "Home",
+      "shop": "Shop",
+      "cart": "Cart",
+      "orders": "Orders",
+      "account": "My Account",
+      "blog": "Blog"
+    },
+    "search": {
+      "noMatch": "Nothing matches with your search keywords",
+      "pleaseTryAgain": "Please try again"
+    }
+  },
+  "notFound": {
+    "doesNotExist": "does not exist",
+    "sorry": "Sorry, we couldn't find the {{path}} page you're looking for.",
+    "popularPages": "Popular pages"
+  },
+  "footer": {
+    "copyright": "@2024 E-commerce solutions. All rights reserved.",
+    "title": "We built our business on customer service",
+    "incentives": {
+      "freeShipping": {
+        "name": "Free shipping",
+        "description": "It's not actually free we just price it into the products. Someone's paying for it, and it's not us."
+      },
+      "warranty": {
+        "name": "10-year warranty",
+        "description": "If it breaks in the first 10 years we'll replace it. After that you're on your own though."
+      },
+      "exchanges": {
+        "name": "Exchanges",
+        "description": "If you don't like it, trade it to one of your friends for something of theirs. Don't send it here though."
+      }
+    }
+  },
+  "blog": {
+    "title": "Our Blog Posts"
+  },
+  "discountedBanner": {
+    "popularSearch": "Popular Search",
+    "searchItems": {
+      "smartWatches": "Smart Watches",
+      "headphones": "Headphone",
+      "cameras": "Cameras",
+      "audio": "Audio",
+      "laptopComputers": "Laptop & Computers",
+      "cellPhone": "Cell Phone"
+    },
+    "sonyHeadphone": "Sony Headphone",
+    "discount20": "Discount 20%",
+    "description": "You're out to play or stepping out to make",
+    "brandsTitle": "Brands We Distribute"
+  },
+  "productList": {
+    "topSelling": "Top Selling Products",
+    "viewAll": "View All Products"
+  },
+  "pagination": {
+    "productsFrom": "Products from {{start}} to {{end}} of {{total}}"
+  },
+  "categories": {
+    "popularCategories": "Popular categories",
+    "viewAllCategories": "View All Categories"
+  },
+  "highlights": {
+    "sectionTitle": "Featured Highlights"
+  },
+  "homeBanner": {
+    "title": "Mi Air Purifier",
+    "subtitle": "The new tech gift you are wishing for right here."
+  },
+  "linkButton": {
+    "startShopping": "Start Shopping"
+  },
+  "addToCart": {
+    "addToCart": "Add to cart",
+    "addedSuccessfully": "{{productName}} added successfully!",
+    "decreasedSuccessfully": "{{productName}} decreased successfully",
+    "productUndefined": "Product is undefined!",
+    "cannotDecreaseLessThanOne": "You can not decrease less than 1"
+  },
+  "categoryFilters": {
+    "filters": "Filters",
+    "selectCategories": "Select Categories"
+  },
+  "checkout": {
+    "checkout": "Checkout",
+    "needToSignIn": "Need to sign in to make checkout"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "orderSummary": "Order summary",
+    "subtotal": "Subtotal",
+    "shippingEstimate": "Shipping estimate",
+    "taxEstimate": "Tax estimate",
+    "totalDiscount": "Total Discount",
+    "orderTotal": "Order total",
+    "emptyCart": {
+      "title": "Shopping Cart",
+      "description": "Your cart is empty. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus libero ab nulla iure quibusdam obcaecati debitis minima explicabo quidem tenetur ad, voluptate iusto ratione natus. Maxime molestiae doloremque eaque nesciunt!",
+      "goToShopping": "go to shopping"
+    }
+  },
+  "cartProduct": {
+    "brand": "Brand:",
+    "category": "Category:",
+    "deletedSuccessfully": "deleted successfully!",
+    "inStock": "In Stock",
+    "youAreSaving": "You are saving",
+    "uponPurchase": "upon purchase"
+  },
+  "product": {
+    "reviews": "reviews",
+    "peopleViewing": "peoples are viewing this right now",
+    "youAreSaving": "You are saving",
+    "uponPurchase": "upon purchase",
+    "color": "Color:",
+    "clear": "Clear",
+    "brand": "Brand:",
+    "category": "Category:",
+    "buyNow": "Buy now",
+    "guaranteedCheckout": "Guaranteed safe & secure checkout",
+    "productsCollection": "Products Collection"
+  },
+  "success": {
+    "processingTitle": "Your order payment is processing",
+    "acceptedTitle": "Your Payment Accepted by supergear.com",
+    "processingDescription": "Once done you can view your Orders or continue Shopping with us",
+    "acceptedDescription": "Now you can view your Orders or continue Shopping with us",
+    "viewOrders": "View Orders",
+    "continueShopping": "Continue Shopping",
+    "paymentSuccess": "Payment accepted successfully & order saved!",
+    "orderError": "Error saving order data"
+  },
+  "orders": {
+    "title": "Customer order details",
+    "customerName": "Customer Name",
+    "totalOrders": "Total Orders",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum porro, nemo quisquam explicabo, mollitia inventore nobis id maiores odio incidunt quidem rerum delectus quaerat similique voluptates dolores perferendis numquam quae.",
+    "trackingNumber": "Tracking number:",
+    "orderShipped": "Your order",
+    "hasShipped": "has shipped and will be with you soon.",
+    "orderItemCount": "Order Item Count:",
+    "paymentStatus": "Payment Status:",
+    "paidByStripe": "Paid by Stripe",
+    "orderAmount": "Order Amount:",
+    "quantity": "Quantity",
+    "price": "Price",
+    "subTotal": "SubTotal",
+    "noOrders": "No orders yet",
+    "noPurchaseMessage": "You did not create any purchase from us",
+    "goToShopping": "Go to Shopping"
+  },
+  "profile": {
+    "welcome": "Welcome back, dear",
+    "lorem": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit, minus rem. Quaerat natus in sit cupiditate expedita odio at sed saepe quos? Maiores, labore suscipit rerum ipsa iste eius voluptates. Dolore laboriosam aut alias iusto quidem necessitatibus quibusdam soluta in enim veritatis, commodi voluptatem inventore iste harum est id autem.",
+    "editProfile": "Edit profile",
+    "addAddress": "Add Address",
+    "logout": "Logout",
+    "proOnlyEdit": "Edit profile option available to pro version!",
+    "proOnlyAddress": "Add Address option available to pro version!",
+    "registrationForm": "Registration Form",
+    "registrationLead": "You need to provide required information to get register with us.",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email address",
+    "password": "Password",
+    "coverPhoto": "Cover photo",
+    "uploadFile": "Upload a file",
+    "orDragDrop": "or drag and drop",
+    "uploadHint": "PNG, JPG, GIF up to 10MB",
+    "submit": "Send",
+    "loading": "Loading...",
+    "alreadyHaveAccount": "Already have an Account",
+    "login": "Login",
+    "errors": {
+      "invalidEmail": "Please enter a valid email.",
+      "missingPassword": "Please enter a password.",
+      "emailInUse": "This email is already in use. Try another email.",
+      "generic": "An error occurred. Please try again."
+    }
+  },
+  "login": {
+    "title": "Login Form",
+    "description": "Please enter your credentials to sign in.",
+    "email": "Email address",
+    "password": "Password",
+    "submit": "Login",
+    "noAccount": "Does not have an Account",
+    "register": "Register",
+    "errors": {
+      "userNotFound": "No user found with this email.",
+      "wrongPassword": "Incorrect password.",
+      "invalidEmail": "Invalid email address.",
+      "invalidCredential": "Email or Password not matched",
+      "generic": "An error occurred. Please try again."
+    }
+  }
+}

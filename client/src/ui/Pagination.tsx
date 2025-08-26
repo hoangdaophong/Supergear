@@ -5,6 +5,7 @@ import { getData } from "../lib";
 import { ProductProps } from "../../type";
 import ProductCard from "./ProductCard";
 import ReactPaginate from "react-paginate";
+import { useTranslation } from "react-i18next";
 
 interface ItemsProps {
   currentItems: ProductProps[];
@@ -23,6 +24,7 @@ const Items = ({ currentItems }: ItemsProps) => {
 
 const Pagination = () => {
   const [products, setProducts] = useState([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,6 +38,7 @@ const Pagination = () => {
     };
     fetchData();
   }, []);
+
   const itemsPerPage = 15;
   const [itemOffset, setItemOffset] = useState(0);
   const [itemStart, setItemStart] = useState(1);
@@ -71,8 +74,11 @@ const Pagination = () => {
           activeClassName="bg-black text-white"
         />
         <p>
-          Products from {itemStart} to {Math.min(endOffset, products?.length)}{" "}
-          of {products?.length}
+          {t("pagination.productsFrom", {
+            start: itemStart,
+            end: Math.min(endOffset, products?.length),
+            total: products?.length,
+          })}
         </p>
       </div>
     </>

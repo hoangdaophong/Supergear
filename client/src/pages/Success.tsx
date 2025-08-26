@@ -6,6 +6,7 @@ import { arrayUnion, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "../lib/firebase";
 import Container from "../ui/Container";
 import Loading from "../ui/Loading";
+import { useTranslation } from "react-i18next";
 
 const Success = () => {
   const { currentUser, cartProduct, resetCart } = store();
@@ -13,6 +14,8 @@ const Success = () => {
   const sessionId = new URLSearchParams(location.search).get("session_id");
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const { t } = useTranslation();
+
   useEffect(() => {
     if (!sessionId) {
       navigate("/");
@@ -46,40 +49,39 @@ const Success = () => {
               ],
             });
           }
-          toast.success("Payment accepted successfully & order saved!");
+          toast.success(t("success.paymentSuccess"));
           resetCart();
         } catch (error) {
-          toast.error("Error saving order data");
+          toast.error(t("success.orderError"));
         } finally {
           setLoading(false);
         }
       };
       saveOrder();
     }
-  }, [sessionId, navigate, currentUser, cartProduct]);
+  }, [sessionId, navigate, currentUser, cartProduct, t]);
 
   return (
     <Container>
       {loading && <Loading />}
       <div className="min-h-[400px] flex flex-col items-center justify-center gap-y-5">
         <h2 className="text-2xl md:text-4xl font-bold text-center">
-          {loading
-            ? "Your order payment is processing"
-            : "Your Payment Accepted by supergear.com"}
+          {loading ? t("success.processingTitle") : t("success.acceptedTitle")}
         </h2>
         <p>
-          {loading ? "Once done" : "Now"} you can view your Orders or continue
-          Shopping with us
+          {loading
+            ? t("success.processingDescription")
+            : t("success.acceptedDescription")}
         </p>
         <div className="flex items-center gap-x-5">
           <Link to={"/orders"}>
             <button className="bg-black text-slate-100 w-52 h-12 rounded-full text-base font-semibold hover:bg-primeColor duration-300">
-              View Orders
+              {t("success.viewOrders")}
             </button>
           </Link>
           <Link to={"/"}>
             <button className="bg-black text-slate-100 w-52 h-12 rounded-full text-base font-semibold hover:bg-primeColor duration-300">
-              Continue Shopping
+              {t("success.continueShopping")}
             </button>
           </Link>
         </div>

@@ -1,6 +1,7 @@
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   showButton?: boolean;
@@ -13,9 +14,10 @@ const LinkButton = ({ showButton, link, className }: Props) => {
     "bg-darkText/80 hover:bg-darkText text-whiteText py-2.5 px-6 rounded-full flex items-center gap-2 duration-200",
     className
   );
+  const { t } = useTranslation();
   return (
     <Link to={link ? link : "/products"} className={newClassName}>
-      {showButton && <FaArrowLeft />} Start Shopping
+      {showButton && <FaArrowLeft />} {t("linkButton.startShopping")}
     </Link>
   );
 };

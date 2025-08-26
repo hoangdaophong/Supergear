@@ -11,23 +11,36 @@ import {
   discountImgOne,
   discountImgTwo,
 } from "../assets";
+import { useTranslation } from "react-i18next";
 
 const DiscountedBanner = () => {
+  const { t } = useTranslation();
+
   const popularSearchItems = [
-    { title: "Smart Watches", link: "smartWatches" },
-    { title: "Headphone", link: "headphones" },
-    { title: "Cameras", link: "camerasAndPhotos" },
-    { title: "Audio", link: "tvAndAudio" },
-    { title: "Laptop & Computers", link: "computersAndLaptop" },
-    { title: "Cell Phone", link: "cellPhones" },
+    {
+      title: t("discountedBanner.searchItems.smartWatches"),
+      link: "smartWatches",
+    },
+    { title: t("discountedBanner.searchItems.headphones"), link: "headphones" },
+    {
+      title: t("discountedBanner.searchItems.cameras"),
+      link: "camerasAndPhotos",
+    },
+    { title: t("discountedBanner.searchItems.audio"), link: "tvAndAudio" },
+    {
+      title: t("discountedBanner.searchItems.laptopComputers"),
+      link: "computersAndLaptop",
+    },
+    { title: t("discountedBanner.searchItems.cellPhone"), link: "cellPhones" },
   ];
+
   return (
     <Container>
       <div>
-        <Title text="Popular Search" />
+        <Title text={t("discountedBanner.popularSearch")} />
         <div className="w-full h-[1px] bg-gray-200 mt-3" />
       </div>
-      <div className="my-7 flex items-center flex-wrap gap-4">
+      <div className="my-6 flex items-center flex-wrap gap-2">
         {popularSearchItems?.map(({ title, link }) => (
           <Link
             key={title}
@@ -46,16 +59,16 @@ const DiscountedBanner = () => {
         />
         <div className="flex flex-col flex-1 gap-1 items-center">
           <div className="flex items-center justify-center gap-x-3 text-xl md:text-4xl font-bold">
-            <h2>Sony Headphone</h2>
+            <h2>{t("discountedBanner.sonyHeadphone")}</h2>
             <Link
               to={"/product"}
               className="border border-red-600 px-4 py-2 text-xl md:text-3xl text-red-600 rounded-full"
             >
-              Discount 20%
+              {t("discountedBanner.discount20")}
             </Link>
           </div>
           <p className="text-sm text-gray-600 font-medium">
-            You’re out to play or stepping out to make
+            {t("discountedBanner.description")}
           </p>
         </div>
         <img
@@ -65,7 +78,9 @@ const DiscountedBanner = () => {
         />
       </div>
       <div className="mt-7">
-        <p className="font-bold text-2xl">Brands We Distribute</p>
+        <p className="font-bold text-2xl">
+          {t("discountedBanner.brandsTitle")}
+        </p>
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 mt-7">
           <div className="border border-r-0 border-gray-300 flex items-center justify-center px-6 py-2 cursor-pointer group">
             <img
